@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Zendesk Demo Websites">
@@ -18,11 +19,7 @@
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.0/examples/product/product.css" rel="stylesheet">
 
-    <script>
-      !function(e,n,t,r){
-          function o(){try{var e;if((e="string"==typeof this.response?JSON.parse(this.response):this.response).url){var t=n.getElementsByTagName("script")[0],r=n.createElement("script");r.async=!0,r.src=e.url,t.parentNode.insertBefore(r,t)}}catch(e){}}var s,p,a,i=[],c=[];e[t]={init:function(){s=arguments;var e={then:function(n){return c.push({type:"t",next:n}),e},catch:function(n){return c.push({type:"c",next:n}),e}};return e},on:function(){i.push(arguments)},render:function(){p=arguments},destroy:function(){a=arguments}},e.__onWebMessengerHostReady__=function(n){if(delete e.__onWebMessengerHostReady__,e[t]=n,s)for(var r=n.init.apply(n,s),o=0;o<c.length;o++){var u=c[o];r="t"===u.type?r.then(u.next):r.catch(u.next)}p&&n.render.apply(n,p),a&&n.destroy.apply(n,a);for(o=0;o<i.length;o++)n.on.apply(n,i[o])};var u=new XMLHttpRequest;u.addEventListener("load",o),u.open("GET","https://"+r+".webloader.smooch.io/",!0),u.responseType="json",u.send()
-      }(window,document,"Smooch","5f46e9a4bbf79d000c333448");
-    </script>
+    
 
   </head>
 
@@ -36,7 +33,7 @@
         <a class="py-2 d-none d-md-inline-block" href="#">Good Bikes Store</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Bikes</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Equipments</a>
-        <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
+        <a class="py-2 d-none d-md-inline-block" href="sunco_demo.html">Support</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
       </div>
     </nav>
@@ -149,15 +146,13 @@
         text: 'Thumbnail'
       });
     </script>
+
+
 <!-- Start of z3n-renato Zendesk Widget script -->
 <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=ed8948e4-85fa-4f2e-9101-9baee2c75eff"> </script>
 <!-- End of z3n-renato Zendesk Widget script -->
 
 
-<script>
-  Smooch.init({ integrationId: '5f46e9a4bbf79d000c333448' }).then(function () {
-      console.log('Smooch initialized')
-  });
-</script>
+
   </body>
 </html>
