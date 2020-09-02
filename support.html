@@ -51,8 +51,8 @@
   <meta id="bbafmabaelnnkondpfpjmdklbmfnbmol">
 
 
-<!-- development version, includes helpful console warnings -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 </head>
@@ -61,23 +61,24 @@
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="app">
     <header class="masthead mb-auto">
       <div class="inner">
-        <h3 class="masthead-brand">Zendesk</h3>
+        <a href="index.html"> <h3 class="masthead-brand">{{brand}}</h3> </a>
         <nav class="nav nav-masthead justify-content-center">
-        
-          <a v-for="item in menu" :key="item.message" class="nav-link" v-bind:href="item.url"  >
+
+          <a v-for="item in menu" :key="item.message" class="nav-link" v-bind:href="item.url">
             {{ item.label }}
-        </a>
+          </a>
 
         </nav>
       </div>
     </header>
 
     <main role="main" class="inner cover">
-      <h1 class="cover-heading">Support Integration Demo</h1>
-      <p class="lead">Sunshine Conversations makes it easy to add conversational capabilities to your product or
-        business. In these docs you’ll find everything you need to use the platform.</p>
+      <h1 class="cover-heading">Support Web Widget</h1>
+      <p class="lead">You can embed the Web Widget in any website to provide your customers with Zendesk functionality
+        such as ticketing, live chat, talk, and Help Center content.</p>
       <p class="lead">
-        <a href="https://docs.smooch.io/guide/" class="btn btn-lg btn-secondary" target="_blank">Learn more</a>
+        <a href="https://developer.zendesk.com/embeddables/docs/widget/introduction" class="btn btn-lg btn-secondary"
+          target="_blank">Learn more</a>
       </p>
     </main>
 
@@ -89,12 +90,13 @@
     </footer>
   </div>
 
- 
+
   <!-- Start of z3n-renato Zendesk Widget script -->
-  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=ed8948e4-85fa-4f2e-9101-9baee2c75eff"> </script>
+  <script id="ze-snippet"
+    src="https://static.zdassets.com/ekr/snippet.js?key=ed8948e4-85fa-4f2e-9101-9baee2c75eff"> </script>
   <!-- End of z3n-renato Zendesk Widget script -->
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 

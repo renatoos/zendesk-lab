@@ -66,7 +66,7 @@
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="app">
     <header class="masthead mb-auto">
       <div class="inner">
-        <h3 class="masthead-brand">Zendesk</h3>
+        <a href="index.html"> <h3 class="masthead-brand">{{brand}}</h3> </a>
         <nav class="nav nav-masthead justify-content-center">
           
             <a v-for="item in menu" :key="item.message" class="nav-link" v-bind:href="item.url"  >
@@ -82,7 +82,7 @@
       <p class="lead">Sunshine Conversations makes it easy to add conversational capabilities to your product or
         business. In these docs you’ll find everything you need to use the platform.</p>
       <p class="lead">
-        <a href="https://docs.smooch.io/guide/" class="btn btn-lg btn-secondary" target="_blank">Learn more</a>
+        <a href="https://docs.smooch.io/guide/web-messenger/" class="btn btn-lg btn-secondary" target="_blank">Learn more</a>
       </p>
     </main>
 
