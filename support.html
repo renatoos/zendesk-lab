@@ -50,13 +50,6 @@
   <link href="https://getbootstrap.com/docs/4.5/examples/cover/cover.css" rel="stylesheet">
   <meta id="bbafmabaelnnkondpfpjmdklbmfnbmol">
 
-  
-
-  <script>
-    !function (e, n, t, r) {
-      function o() { try { var e; if ((e = "string" == typeof this.response ? JSON.parse(this.response) : this.response).url) { var t = n.getElementsByTagName("script")[0], r = n.createElement("script"); r.async = !0, r.src = e.url, t.parentNode.insertBefore(r, t) } } catch (e) { } } var s, p, a, i = [], c = []; e[t] = { init: function () { s = arguments; var e = { then: function (n) { return c.push({ type: "t", next: n }), e }, catch: function (n) { return c.push({ type: "c", next: n }), e } }; return e }, on: function () { i.push(arguments) }, render: function () { p = arguments }, destroy: function () { a = arguments } }, e.__onWebMessengerHostReady__ = function (n) { if (delete e.__onWebMessengerHostReady__, e[t] = n, s) for (var r = n.init.apply(n, s), o = 0; o < c.length; o++) { var u = c[o]; r = "t" === u.type ? r.then(u.next) : r.catch(u.next) } p && n.render.apply(n, p), a && n.destroy.apply(n, a); for (o = 0; o < i.length; o++)n.on.apply(n, i[o]) }; var u = new XMLHttpRequest; u.addEventListener("load", o), u.open("GET", "https://" + r + ".webloader.smooch.io/", !0), u.responseType = "json", u.send()
-    }(window, document, "Smooch", "5f46e9a4bbf79d000c333448");
-  </script>
 
 <!-- development version, includes helpful console warnings -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -80,7 +73,7 @@
     </header>
 
     <main role="main" class="inner cover">
-      <h1 class="cover-heading">SunCo Integration Demo</h1>
+      <h1 class="cover-heading">Support Integration Demo</h1>
       <p class="lead">Sunshine Conversations makes it easy to add conversational capabilities to your product or
         business. In these docs you’ll find everything you need to use the platform.</p>
       <p class="lead">
@@ -96,11 +89,10 @@
     </footer>
   </div>
 
-  <script>
-    Smooch.init({ integrationId: '5f46e9a4bbf79d000c333448' }).then(function () {
-      console.log('Smooch initialized')
-    });
-  </script>
+ 
+  <!-- Start of z3n-renato Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=ed8948e4-85fa-4f2e-9101-9baee2c75eff"> </script>
+  <!-- End of z3n-renato Zendesk Widget script -->
 
 <script src="script.js"></script>
 
