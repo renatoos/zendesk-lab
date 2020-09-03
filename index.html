@@ -3,52 +3,52 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Renato O., Bootstrap Templates">
-  <meta name="generator" content="Jekyll v4.1.1">
-  <title>Zendesk Demo Pages</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Renato O., Bootstrap Templates">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Zendesk Demo Pages</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
 
-  <!-- Bootstrap core CSS -->
-  <link href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/apple-touch-icon.png"
-    sizes="180x180">
-  <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32"
-    type="image/png">
-  <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16"
-    type="image/png">
-  <link rel="manifest" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/safari-pinned-tab.svg"
-    color="#563d7c">
-  <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon.ico">
-  <meta name="theme-color" content="#563d7c">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/apple-touch-icon.png"
+        sizes="180x180">
+    <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32"
+        type="image/png">
+    <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16"
+        type="image/png">
+    <link rel="manifest" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/safari-pinned-tab.svg"
+        color="#563d7c">
+    <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#563d7c">
 
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-  <!-- Custom styles for this template -->
-  <link href="https://getbootstrap.com/docs/4.5/examples/cover/cover.css" rel="stylesheet">
-  <meta id="bbafmabaelnnkondpfpjmdklbmfnbmol">
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.5/examples/cover/cover.css" rel="stylesheet">
+    <meta id="bbafmabaelnnkondpfpjmdklbmfnbmol">
 
 
     <!-- development version, includes helpful console warnings -->
@@ -56,46 +56,37 @@
 
 </head>
 
-<body class="text-center" data-gr-c-s-loaded="true" cz-shortcut-listen="true" >
-  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="app">
-    <header class="masthead mb-auto">
-      <div class="inner">
-        <a href="index.html"> <h3 class="masthead-brand">{{brand}}</h3> </a>
-        <nav class="nav nav-masthead justify-content-center">
+<body class="text-center" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="app">
 
-            <a v-for="item in menu" :key="item.message" class="nav-link" v-bind:href="item.url"  >
-                {{ item.label }}
-            </a>
-
-        </nav>
-      </div>
-    </header>
+        <zen-navbar :brand="brand" :menu="menu"></zen-navbar>
 
 
-<!-- Three columns of text below the carousel -->
-<div class="row">
-    <div class="col-lg-4" v-for="item in menu" :key="item.message" >
-      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-      <h3>{{item.label}}</h3>
-      <p>{{item.description}}</p>
-      <p><a class="btn btn-secondary" v-bind:href="item.url"  role="button">View details &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-  </div><!-- /.row -->
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4" v-for="item in menu" :key="item.message">
+                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                    xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                    aria-label="Placeholder: 140x140">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777"
+                        dy=".3em">140x140</text>
+                </svg>
+                <h3>{{item.label}}</h3>
+                <p>{{item.description}}</p>
+                <p><a class="btn btn-secondary" v-bind:href="item.url" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
 
-    
-    <footer class="mastfoot mt-auto">
-      <div class="inner">
-        <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a
-            href="https://twitter.com/mdo">@mdo</a>.</p>
-      </div>
-    </footer>
-  </div>
+
+        <zen-footer></zen-footer>
+    </div>
 
 
 
- 
 
-<script src="script.js"></script>
+
+    <script src="script.js"></script>
 
 
 </body>

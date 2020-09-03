@@ -1,5 +1,17 @@
 
-    var app = new Vue({
+Vue.component('zen-footer', {
+    template: "<footer class='mastfoot mt-auto'> <div class='inner'> <p>Cover template for <a href='https://getbootstrap.com/'>Bootstrap</a>, by <a href='https://twitter.com/mdo'>@mdo</a>.</p> </div> </footer>"
+  });
+
+
+Vue.component('zen-navbar', {
+    template: "<header class='masthead mb-auto'> <div class='inner'>  <a href='index.html'> <h3 class='masthead-brand'>{{brand}}</h3> </a>  <nav class='nav nav-masthead justify-content-center'> <a v-for='item in menu' :key='item.message' class='nav-link' v-bind:href='item.url'> {{ item.label }} </a> </nav> </div> </header>",
+    props : ['menu','brand']
+  });
+  
+
+
+var app = new Vue({
   el: '#app',
   data: {
     brand: "Zendesk",
