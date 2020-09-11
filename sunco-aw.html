@@ -70,7 +70,7 @@
     <zen-navbar :brand="brand" :menu="menu"></zen-navbar>
 
     <main role="main" class="inner cover">
-      <h1 class="cover-heading">SunCo Integration Demo</h1>
+      <h1 class="cover-heading">SunCo AW Integration Demo</h1>
       <p class="lead">Sunshine Conversations makes it easy to add conversational capabilities to your product or
         business. In these docs you’ll find everything you need to use the platform.</p>
       <p class="lead">
@@ -85,6 +85,17 @@
 
   <script>
     Smooch.init({ integrationId: '5f46e9a4bbf79d000c333448' }).then(function () {
+      Smooch.login(
+    "johndoe@example.com",
+    "eyJraWQiOiJhcHBfNWY0NmU4ZDk0ZDlkODQwMDBjYWE4YzViIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE1OTk4NDQ2MDksInNjb3BlIjoiYXBwVXNlciIsInVzZXJJZCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJuYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20ifQ.AAcljsoyOLsJvFcZl2OUqyVb-zYS90cpwU--nZGmWaI"
+  ).then(
+    function () {
+      console.log("Authentication Good");
+    },
+    function (err) {
+      console.error("Authentication Bad");
+    }
+  );
       console.log('Smooch initialized')
     });
   </script>
