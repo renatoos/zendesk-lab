@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Renato O., Bootstrap Templates">
+  <title>SunCo Demo</title>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/apple-touch-icon.png"
+    sizes="180x180">
+  <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32"
+    type="image/png">
+  <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16"
+    type="image/png">
+  <link rel="manifest" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/safari-pinned-tab.svg"
+    color="#563d7c">
+  <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon.ico">
+  <meta name="theme-color" content="#563d7c">
+
+
+  <script>
+
+  </script>
+
+  
+
+  <!-- development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+  <div class="container" id="app">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+      <a class="navbar-brand" href="#">
+        <img src="assets/img/zendesk.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        {{brand}}
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sunco-leg.html">Legacy</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="sunco-aw.html">Agent Workspace</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav>
+
+
+
+
+    <div class="row" style="margin-top: 30px;">
+      <div class="col-sm-8">
+
+        <div class="card">
+          <div class="card-header">
+            Web Widget Configuration
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+            <form>
+              <div class="form-group">
+                <label for="IntegrationId">Integration ID</label>
+                <input type="text" class="form-control form-control-sm" id="IntegrationId" placeholder="Put the Integration ID"
+                  v-model="integrationId">
+              </div>
+              <div class="form-group">
+                <label for="UserId">User ID</label>
+                <input type="text" class="form-control form-control-sm" id="UserId" placeholder="User ID (email, cpf, other id)"
+                  v-model="userId">
+              </div>
+              <div class="form-group">
+                <label for="jwtAuthn">JWT</label>
+                <input type="text" class="form-control form-control-sm" id="jwtAuthn" placeholder="Put the pre created JWT (by jwt.io)"
+                  v-model="jwtAuthn">
+              </div>
+
+              <div class="form-group">
+                <label for="HeaderText">Header Text</label>
+                <input type="text" class="form-control form-control-sm" id="HeaderText" placeholder="Choose a Header Text"
+                  v-model="headerText">
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput2">Another label</label>
+                <input type="text" class="form-control form-control-sm" id="formGroupExampleInput2"
+                  placeholder="Another input placeholder">
+              </div>
+
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="fixedIntro" v-model="isFixedIntro">
+                <label class="custom-control-label" for="fixedIntro">Fixed Intro</label>
+              </div>
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="embedded" v-model="isEmbedded" v-on:change="updateWidget">
+                <label class="custom-control-label" for="embedded">Embed Widget</label>
+              </div>
+
+
+
+              <a href="#" class="btn btn-primary" v-on:click="updateWidget">Update</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-header">
+            Web Widget Embedded - {{isEmbedded}}
+          </div>
+          <div class="card-body">
+
+            <p class="card-title">
+              <div id="chat-container" v-if="isEmbedded" style="height: 400px;"></div>
+            
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
