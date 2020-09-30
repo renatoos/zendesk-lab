@@ -57,8 +57,26 @@ var app = new Vue({
     userId: "johndoe@example.com",
     jwtAuthn : "eyJraWQiOiJhcHBfNWY0NmU4ZDk0ZDlkODQwMDBjYWE4YzViIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE1OTk4NDQ2MDksInNjb3BlIjoiYXBwVXNlciIsInVzZXJJZCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJuYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20ifQ.AAcljsoyOLsJvFcZl2OUqyVb-zYS90cpwU--nZGmWaI",  
     isFixedIntro: true,
-    isEmbedded: false,
-    headerText: "ZGroup",
+    isEmbedded: true,
+    customText: {
+      headerText: "ZGroup",
+      inputPlaceholder: "Type a messages...",
+      sendButtonText: "Sender",
+    },
+    customColors: {
+      brandColor: "#000000",
+      conversationColor: "#b7b7b5",
+      actionColor: "#191919"
+    },
+    businessName: 'Acme Corporation',
+    businessIconUrl: 'https://is2-ssl.mzstatic.com/image/thumb/Purple127/v4/67/a4/5b/67a45b68-c821-842f-22f5-9fa83b605ce3/mzl.evidoiah.jpg/1200x630bb.jpg',
+    menuItems: {
+      imageUpload: true,
+      fileUpload: true,
+      shareLocation: true
+  },
+    soundNotificationEnabled: false,
+    backgroundImageUrl: '', //'https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg',
     menu: menuData,
   },
   methods: {
@@ -67,17 +85,16 @@ var app = new Vue({
     },
     updateWidget: function () {
       intId = this.integrationId
-      smoochInit(intId, this.headerText, this.isFixedIntro, this.isEmbedded)
+      smoochInit(intId, this.$data)
       
     },
   },
-  beforeMount(){
+  created(){
+    console.log(this.$data)
     this.updateWidget();
     
- },
-  updated(){
-    //smoochLogin(this.userId, this.jwt)
-  }
+ }
+  
 });
 
 const smoochLogin = (userId, jwt) => {
@@ -105,25 +122,37 @@ const smoochLogout = () => {
   );
 };
 
-function smoochInit(integrationId, headerText, isFixedIntro, isEmbedded) {
+function smoochInit(integrationId, settings) {
 
   Smooch.destroy();
 
   Smooch.init({
     integrationId: integrationId,
-    fixedIntroPane: isFixedIntro,
+    fixedIntroPane: settings.isFixedIntro,
     browserStorage: "sessionStorage",
-    embedded: isEmbedded,
-    customText: {
-      headerText: headerText,
-      inputPlaceholder: "Type a message...",
-      sendButtonText: "Send",
-    },
+    embedded: settings.isEmbedded,
+    customText: settings.customText,
+    customColors: 
+        {
+          brandColor: settings.customColors.brandColor.replace('#',''),
+          conversationColor: settings.customColors.conversationColor.replace('#',''),
+          actionColor: settings.customColors.actionColor.replace('#','')
+        },
+      businessName: settings.businessName,
+      businessIconUrl : settings.businessIconUrl ,
+      menuItems: settings.menuItems,
+      soundNotificationEnabled: settings.soundNotificationEnabled,
+      backgroundImageUrl: settings.backgroundImageUrl, 
   });
 
-  if(isEmbedded){
+  if(settings.isEmbedded){
     Smooch.render(document.getElementById('chat-container'));
   }
 
 }
+
+$('#myTab a').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
 

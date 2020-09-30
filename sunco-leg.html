@@ -44,8 +44,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
       <a class="navbar-brand" href="#">
-        <img src="assets/img/zendesk.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-        {{brand}}
+        <img src="assets/img/1200px-Zendesk_logo.svg.png" width="30" class="d-inline-block align-top" alt="" loading="lazy">
+        
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,13 +57,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sunco-leg.html">Legacy</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="sunco-aw.html">Agent Workspace</a>
-          </li>
+          
 
         </ul>
 
@@ -77,7 +71,7 @@
       <div class="col-sm-8">
 
         <div class="card">
-          <div class="card-header">
+          <div class="card-header bg-success">
             Web Widget Configuration
           </div>
           <div class="card-body">
@@ -85,43 +79,105 @@
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
             <form>
-              <div class="form-group">
-                <label for="IntegrationId">Integration ID</label>
-                <input type="text" class="form-control form-control-sm" id="IntegrationId" placeholder="Put the Integration ID"
-                  v-model="integrationId">
-              </div>
-              <div class="form-group">
-                <label for="UserId">User ID</label>
-                <input type="text" class="form-control form-control-sm" id="UserId" placeholder="User ID (email, cpf, other id)"
-                  v-model="userId">
-              </div>
-              <div class="form-group">
-                <label for="jwtAuthn">JWT</label>
-                <input type="text" class="form-control form-control-sm" id="jwtAuthn" placeholder="Put the pre created JWT (by jwt.io)"
-                  v-model="jwtAuthn">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="true">Settings</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="authentication-tab" data-toggle="tab" href="#authentication" role="tab" aria-controls="authentication" aria-selected="false">Authentication</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="design-tab" data-toggle="tab" href="#design" role="tab" aria-controls="design" aria-selected="false">Design</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                  
+                  <br/>
+
+                  <div class="form-group">
+                    <label for="IntegrationId">Integration ID</label>
+                    <input type="text" class="form-control form-control-sm" id="IntegrationId" placeholder="Put the Integration ID"
+                      v-model="integrationId">
+                  </div>
+
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="fixedIntro" v-model="isFixedIntro">
+                    <label class="custom-control-label" for="fixedIntro">Fixed Intro</label>
+                  </div>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="embedded" v-model="isEmbedded" v-on:change="updateWidget">
+                    <label class="custom-control-label" for="embedded">Embed Widget</label>
+                  </div>
+
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="soundNotificationEnabled" v-model="soundNotificationEnabled">
+                    <label class="custom-control-label" for="soundNotificationEnabled">Sound Notification</label>
+                  </div>
+
+
+                </div>
+                <div class="tab-pane fade" id="authentication" role="tabpanel" aria-labelledby="authentication-tab">
+                  
+                  <br/>
+
+                  <div class="form-group">
+                    <label for="UserId">User ID</label>
+                    <input type="text" class="form-control form-control-sm" id="UserId" placeholder="User ID (email, cpf, other id)"
+                      v-model="userId">
+                  </div>
+                  <div class="form-group">
+                    <label for="jwtAuthn">JWT</label>
+                    <input type="textarea" rows=3 class="form-control form-control-sm" id="jwtAuthn" placeholder="Put the pre created JWT (by jwt.io)"
+                      v-model="jwtAuthn">
+                  </div>
+
+
+                </div>
+                <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
+
+                  <br/>
+                  
+                  <div class="form-group">
+                    <label for="HeaderText">Header Text</label>
+                    <input type="text" class="form-control form-control-sm" id="HeaderText" placeholder="Choose a Header Text" v-model="customText.headerText">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPlaceHolder">Input Placeholder</label>
+                    <input type="text" class="form-control form-control-sm" id="inputPlaceHolder"
+                      placeholder="Input placeholder" v-model="customText.inputPlaceHolder">
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col-4">
+                      <label for="brandColor">Brand Color</label>
+                    <input type="color" class="form-control form-control-sm" id="brandColor"
+                      placeholder="Select Brand Color" v-model="customColors.brandColor" >
+                      {{customColors.brandColor}}
+                    </div>
+                    <div class="col-4">
+                      <label for="conversationColor">Conversation Color</label>
+                    <input type="color" class="form-control form-control-sm" id="conversationColor"
+                      placeholder="Select Conversation Color" v-model="customColors.conversationColor" >
+                      {{customColors.conversationColor}}
+                    </div>
+                    <div class="col-4">
+                      <label for="actionColor">Action Color</label>
+                    <input type="color" class="form-control form-control-sm" id="actionColor"
+                      placeholder="Select Action Color" v-model="customColors.actionColor" >
+                      {{customColors.actionColor}}
+                    </div>
+                  </div>
+
+
+
+                  
+
+                </div>
               </div>
 
-              <div class="form-group">
-                <label for="HeaderText">Header Text</label>
-                <input type="text" class="form-control form-control-sm" id="HeaderText" placeholder="Choose a Header Text"
-                  v-model="headerText">
-              </div>
-              <div class="form-group">
-                <label for="formGroupExampleInput2">Another label</label>
-                <input type="text" class="form-control form-control-sm" id="formGroupExampleInput2"
-                  placeholder="Another input placeholder">
-              </div>
 
-              <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="fixedIntro" v-model="isFixedIntro">
-                <label class="custom-control-label" for="fixedIntro">Fixed Intro</label>
-              </div>
-              <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" id="embedded" v-model="isEmbedded" v-on:change="updateWidget">
-                <label class="custom-control-label" for="embedded">Embed Widget</label>
-              </div>
-
-
+              <br/>
 
               <a href="#" class="btn btn-primary" v-on:click="updateWidget">Update</a>
           </div>
@@ -131,13 +187,16 @@
 
       <div class="col-sm-4">
         <div class="card">
-          <div class="card-header">
-            Web Widget Embedded - {{isEmbedded}}
+          <div class="card-header bg-success">
+            Web Widget Embedded
           </div>
           <div class="card-body">
 
             <p class="card-title">
-              <div id="chat-container" v-if="isEmbedded" style="height: 600px;"></div>
+              <div id="chat-container" v-if="!isEmbedded" style="height: 150px;"> If selected the option "Embedded Widget", tab "Settings".
+              
+              </div>
+              <div id="chat-container" v-if="isEmbedded" style="height: 550px;"> </div>
             
             </p>
           </div>
@@ -151,8 +210,11 @@
 
 
 
-
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <script src="script.js"></script>
+
 
 </body>
 
