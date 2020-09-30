@@ -71,13 +71,13 @@
       <div class="col-sm-8">
 
         <div class="card">
-          <div class="card-header bg-success">
-            Web Widget Configuration
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
+        
+          <div class="card-body border-top border-primary">
+            <h5 class="card-title">Web Widget Configuration</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
+            
+            <br/>
             <form>
               <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -121,16 +121,44 @@
                   
                   <br/>
 
-                  <div class="form-group">
-                    <label for="UserId">User ID</label>
-                    <input type="text" class="form-control form-control-sm" id="UserId" placeholder="User ID (email, cpf, other id)"
-                      v-model="userId">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="authnRadios" id="anonymousRadio" value="anonymous" v-model="authnOption">
+                    <label class="form-check-label" for="anonymousRadio">
+                      Anonymous
+                    </label>
                   </div>
-                  <div class="form-group">
-                    <label for="jwtAuthn">JWT</label>
-                    <input type="textarea" rows=3 class="form-control form-control-sm" id="jwtAuthn" placeholder="Put the pre created JWT (by jwt.io)"
-                      v-model="jwtAuthn">
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="authnRadios" id="authenticatedRadio" value="authenticated" v-model="authnOption">
+                    <label class="form-check-label" for="authenticatedRadio">
+                      Authenticate User
+                    </label>
                   </div>
+
+                  
+                    
+                    <div class="card" style="width: 100%;">
+                      
+                      <div class="card-body">
+                        
+                        <div class="form-row">
+                          <div class="col">
+                            <label for="UserId">User ID</label>
+                            <input type="text" :readonly = "authnOption == 'anonymous'"  class="form-control form-control-sm" id="UserId" placeholder="User ID (email, cpf, other id)" v-model="userId">
+                          </div>
+                          <div class="col">
+                            <label for="jwtAuthn">JWT</label>
+                            <textarea rows=3 :readonly = "authnOption == 'anonymous'" class="form-control form-control-sm" id="jwtAuthn" placeholder="Put the pre created JWT (by jwt.io)" v-model="jwtAuthn"></textarea>
+                          </div>
+                        </div>
+
+                        <a href="#" class="btn btn-primary" v-on:click="authenticateUser">Login</a> <a href="#" class="btn btn-danger" v-on:click="logoutUser">Logout</a>
+
+
+                      </div>
+                    </div>
+                    
+                </span>
 
 
                 </div>
@@ -186,19 +214,20 @@
 
 
       <div class="col-sm-4">
-        <div class="card">
-          <div class="card-header bg-success">
-            Web Widget Embedded
-          </div>
-          <div class="card-body">
+        <div class="card ">
+          
+          <div class="card-body border-top border-primary">
 
-            <p class="card-title">
-              <div id="chat-container" v-if="!isEmbedded" style="height: 150px;"> If selected the option "Embedded Widget", tab "Settings".
+            <h5 class="card-title">Web Widget Embedded</h5>
+            <p class="card-text">
+
+              <div id="chat-container" v-if="!isEmbedded" style="height: 150px;">Shown if selected the option "Embedded Widget", tab "Settings".
               
               </div>
-              <div id="chat-container" v-if="isEmbedded" style="height: 550px;"> </div>
-            
+              <div id="chat-container" v-if="isEmbedded" style="height: 550px;"> </div>              
+
             </p>
+
           </div>
         </div>
       </div>

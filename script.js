@@ -53,6 +53,7 @@ var app = new Vue({
   el: "#app",
   data: {
     brand: "Zendesk",
+    authnOption: "anonymous",
     integrationId: "5f19ad569fdd5c000cd87fbe",
     userId: "johndoe@example.com",
     jwtAuthn : "eyJraWQiOiJhcHBfNWY0NmU4ZDk0ZDlkODQwMDBjYWE4YzViIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE1OTk4NDQ2MDksInNjb3BlIjoiYXBwVXNlciIsInVzZXJJZCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJuYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20ifQ.AAcljsoyOLsJvFcZl2OUqyVb-zYS90cpwU--nZGmWaI",  
@@ -80,28 +81,28 @@ var app = new Vue({
     menu: menuData,
   },
   methods: {
-    changeUser: function () {
+    authenticateUser: function () {
+        
+        smoochLogin(this.userId, this.jwtAuthn);
+        this.customText.headerText = this.userId;
+  
+    },
+    logoutUser: function(){
       smoochLogout();
     },
     updateWidget: function () {
-      intId = this.integrationId
-      smoochInit(intId, this.$data)
-      
+      smoochInit(this.$data);
     },
   },
   created(){
-    console.log(this.$data)
     this.updateWidget();
-    
  }
   
 });
 
-const smoochLogin = (userId, jwt) => {
-  Smooch.login(
-    "johndoe@example.com",
-    "eyJraWQiOiJhcHBfNWY0NmU4ZDk0ZDlkODQwMDBjYWE4YzViIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE1OTk4NDQ2MDksInNjb3BlIjoiYXBwVXNlciIsInVzZXJJZCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJuYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20ifQ.AAcljsoyOLsJvFcZl2OUqyVb-zYS90cpwU--nZGmWaI"
-  ).then(
+
+function smoochLogin(userId, jwt){
+  login = Smooch.login( userId, jwt ).then(
     function () {
       console.log("Authentication OK");
     },
@@ -111,25 +112,25 @@ const smoochLogin = (userId, jwt) => {
   );
 };
 
-const smoochLogout = () => {
-  Smooch.logout().then(
+function smoochLogout(){
+  logout = Smooch.logout().then(
     function () {
       console.log("Logout OK");
     },
     function (err) {
-      console.log("Logout Failed");
+      console.error("Logout Failed");
     }
   );
 };
 
-function smoochInit(integrationId, settings) {
+function smoochInit(settings) {
 
   Smooch.destroy();
 
   Smooch.init({
-    integrationId: integrationId,
+    integrationId: settings.integrationId,
     fixedIntroPane: settings.isFixedIntro,
-    browserStorage: "sessionStorage",
+    //browserStorage: "sessionStorage",
     embedded: settings.isEmbedded,
     customText: settings.customText,
     customColors: 
