@@ -9,8 +9,9 @@ var intId = "5f19ad569fdd5c000cd87fbe"
 
 Vue.component("zen-footer", {
   template:
-    "<footer class='mastfoot mt-auto'> <div class='inner'> <p>My template for <a href='https://zendesk.com/'>Zendesk</a>.</p> </div> </footer>",
+    "<div class='container navbar fixed-bottom'>© 2020 <div class='inner'> <p>My template for <a href='https://zendesk.com/'>Zendesk</a>.</p> </div></div>"
 });
+
 
 Vue.component("zen-navbar", {
   template:
@@ -85,10 +86,12 @@ var app = new Vue({
         
         smoochLogin(this.userId, this.jwtAuthn);
         this.customText.headerText = this.userId;
+        this.updateWidget();
   
     },
     logoutUser: function(){
       smoochLogout();
+      this.updateWidget();
     },
     updateWidget: function () {
       smoochInit(this.$data);
@@ -157,3 +160,15 @@ $('#myTab a').on('click', function (e) {
   $(this).tab('show')
 })
 
+
+
+function fetchApi(){
+  const url = "https://pokeapi.co/api/v2/pokemon/ditto"
+  
+  fetch(url)
+    .then(data=>{return data.json()})
+    .then(res=>{console.log(res)})
+
+}
+
+console.log(fetchApi());
