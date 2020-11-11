@@ -52,7 +52,7 @@ var app = new Vue({
   data: {
     brand: "Zendesk",
     authnOption: "anonymous",
-    integrationId: "5f19ad569fdd5c000cd87fbe",
+    integrationId: "<your-integration-ID>",
     userId: "johndoe@example.com",
     jwtAuthn : "eyJraWQiOiJhcHBfNWY0NmU4ZDk0ZDlkODQwMDBjYWE4YzViIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE1OTk4NDQ2MDksInNjb3BlIjoiYXBwVXNlciIsInVzZXJJZCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJuYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20ifQ.AAcljsoyOLsJvFcZl2OUqyVb-zYS90cpwU--nZGmWaI",  
     isFixedIntro: true,
