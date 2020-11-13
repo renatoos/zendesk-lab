@@ -53,9 +53,11 @@
 
 
   <script>
-    !function (e, n, t, r) {
-      function o() { try { var e; if ((e = "string" == typeof this.response ? JSON.parse(this.response) : this.response).url) { var t = n.getElementsByTagName("script")[0], r = n.createElement("script"); r.async = !0, r.src = e.url, t.parentNode.insertBefore(r, t) } } catch (e) { } } var s, p, a, i = [], c = []; e[t] = { init: function () { s = arguments; var e = { then: function (n) { return c.push({ type: "t", next: n }), e }, catch: function (n) { return c.push({ type: "c", next: n }), e } }; return e }, on: function () { i.push(arguments) }, render: function () { p = arguments }, destroy: function () { a = arguments } }, e.__onWebMessengerHostReady__ = function (n) { if (delete e.__onWebMessengerHostReady__, e[t] = n, s) for (var r = n.init.apply(n, s), o = 0; o < c.length; o++) { var u = c[o]; r = "t" === u.type ? r.then(u.next) : r.catch(u.next) } p && n.render.apply(n, p), a && n.destroy.apply(n, a); for (o = 0; o < i.length; o++)n.on.apply(n, i[o]) }; var u = new XMLHttpRequest; u.addEventListener("load", o), u.open("GET", "https://" + r + ".webloader.smooch.io/", !0), u.responseType = "json", u.send()
-    }(window, document, "Smooch", "5f46e9a4bbf79d000c333448");
+
+  !function(o,p,s,e,c){
+        var i,a,h,u=[],d=[];function t(){var t="You must provide a supported major version.";try{if(!c)throw new Error(t);var e,n="https://cdn.smooch.io/",r="smooch";if((e="string"==typeof this.response?JSON.parse(this.response):this.response).url){var o=p.getElementsByTagName("script")[0],s=p.createElement("script");s.async=!0;var i=c.match(/([0-9]+)\.?([0-9]+)?\.?([0-9]+)?/),a=i&&i[1];if(i&&i[3])s.src=n+r+"."+c+".min.js";else{if(!(4<=a&&e["v"+a]))throw new Error(t);s.src=e["v"+a]}o.parentNode.insertBefore(s,o)}}catch(e){e.message===t&&console.error(e)}}o[s]={init:function(){i=arguments;var t={then:function(e){return d.push({type:"t",next:e}),t},catch:function(e){return d.push({type:"c",next:e}),t}};return t},on:function(){u.push(arguments)},render:function(){a=arguments},destroy:function(){h=arguments}},o.__onWebMessengerHostReady__=function(e){if(delete o.__onWebMessengerHostReady__,o[s]=e,i)for(var t=e.init.apply(e,i),n=0;n<d.length;n++){var r=d[n];t="t"===r.type?t.then(r.next):t.catch(r.next)}a&&e.render.apply(e,a),h&&e.destroy.apply(e,h);for(n=0;n<u.length;n++)e.on.apply(e,u[n])};var n=new XMLHttpRequest;n.addEventListener("load",t),n.open("GET","https://"+e+".webloader.smooch.io/",!0),n.responseType="json",n.send()
+        }(window,document,"Smooch","5f46e9a4bbf79d000c333448","5");
+
   </script>
 
   <!-- development version, includes helpful console warnings -->
@@ -64,43 +66,20 @@
 </head>
 
 <body class="text-center" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
-  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="app">
-
-
-    <zen-navbar :brand="brand" :menu="menu"></zen-navbar>
-
-    <main role="main" class="inner cover">
-      <h1 class="cover-heading">SunCo AW Integration Demo</h1>
-      <p class="lead">Sunshine Conversations makes it easy to add conversational capabilities to your product or
-        business. In these docs you’ll find everything you need to use the platform.</p>
-      <p class="lead">
-        <a href="https://docs.smooch.io/guide/web-messenger/" class="btn btn-lg btn-secondary" target="_blank">Learn
-          more</a>
-      </p>
-    </main>
-
-    <zen-footer></zen-footer>
-
-  </div>
+  Teste
 
   <script>
-    Smooch.init({ integrationId: '5f46e9a4bbf79d000c333448' }).then(function () {
-      Smooch.login(
-    "johndoe@example.com",
-    "eyJraWQiOiJhcHBfNWY0NmU4ZDk0ZDlkODQwMDBjYWE4YzViIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE1OTk4NDQ2MDksInNjb3BlIjoiYXBwVXNlciIsInVzZXJJZCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJuYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20ifQ.AAcljsoyOLsJvFcZl2OUqyVb-zYS90cpwU--nZGmWaI"
-  ).then(
-    function () {
-      console.log("Authentication Good");
-    },
-    function (err) {
-      console.error("Authentication Bad");
-    }
-  );
-      console.log('Smooch initialized')
-    });
+    Smooch.init({ integrationId: '5f46e9a4bbf79d000c333448' }).then(
+        function() {
+            // Your code after init is complete
+        },
+        function(err) {
+            // Something went wrong during initialization
+        }
+    );
   </script>
 
-  <script src="script.js"></script>
+
 
 </body>
 
