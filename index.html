@@ -6,31 +6,30 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="Renato O., Bootstrap Templates">
-  <title>SunCo Demo</title>
+  <meta name="author" content="Renato O.">
+  <title>Zendesk Demo</title>
 
 
   <!-- Bootstrap core CSS -->
   <link href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/apple-touch-icon.png"
-    sizes="180x180">
-  <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32"
-    type="image/png">
-  <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16"
-    type="image/png">
-  <link rel="manifest" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/safari-pinned-tab.svg"
-    color="#563d7c">
   <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon.ico">
   <meta name="theme-color" content="#563d7c">
 
+  <!-- Import Feather Icons --> 
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
   <style>
     body {
-      padding-bottom: 70px;
+      margin-top: 100px;
+      
     }
+
+    .fixed-bottom{
+      color: lightgray;
+    }
+
   </style>
 
   
@@ -40,41 +39,38 @@
 
 </head>
 
-<body>
+<body class="bg-dark">
+
   <div class="container" id="app">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-      <a class="navbar-brand" href="index.html">
-        <img src="assets/img/1200px-Zendesk_logo.svg.png" width="30" class="d-inline-block align-top" alt="" loading="lazy">
-        
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    
+      <a class="navbar-brand" href="#">Zendesk</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-          </li>
           
-
+          <li class="nav-item">
+            
+            <a class="nav-link" target="blank" href="https://docs.smooch.io/guide/"><img data-feather="book"></img> Docs</a>
+          </li>
+                 
         </ul>
-
+         
       </div>
     </nav>
 
 
-
-
-    <div class="row" style="margin-top: 30px;">
-      <div class="col-sm-8">
+    <div class="row">
+      <div class="col-sm-6">
 
         <div class="card">
         
-          <div class="card-body border-top border-primary">
+          <div class="card-body border-top border-secondary">
             <h5 class="card-title">Web Widget Configuration</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
@@ -86,7 +82,7 @@
                   <a class="nav-link active" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="true">Settings</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <a class="nav-link" id="authentication-tab" data-toggle="tab" href="#authentication" role="tab" aria-controls="authentication" aria-selected="false">Authentication</a>
+                  <a class="nav-link" id="authentication-tab" data-toggle="tab" href="#authentication" role="tab" aria-controls="authentication" aria-selected="false">Auth</a>
                 </li>
                 <li class="nav-item" role="presentation">
                   <a class="nav-link" id="design-tab" data-toggle="tab" href="#design" role="tab" aria-controls="design" aria-selected="false">Design</a>
@@ -114,10 +110,11 @@
 
                   <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="soundNotificationEnabled" v-model="soundNotificationEnabled">
-                    <label class="custom-control-label" for="soundNotificationEnabled">Sound Notification</label>
+                    <label class="custom-control-label" for="soundNotificationEnabled">Sound Notification </label>
+                    <i data-feather="info" data-toggle="tooltip" data-placement="right" title="Sound Notification"> </i>
                   </div>
 
-
+      
                 </div>
                 <div class="tab-pane fade" id="authentication" role="tabpanel" aria-labelledby="authentication-tab">
                   
@@ -211,10 +208,10 @@
       </div>
 
 
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <div class="card ">
           
-          <div class="card-body border-top border-primary">
+          <div class="card-body border-top border-secondary">
 
             <h5 class="card-title">Web Widget Embedded</h5>
             <p class="card-text">
@@ -234,7 +231,7 @@
 
   </div>
 
-  <div class='container navbar fixed-bottom'><p>© 2020 <a href='https://linkedin.com/renatoos'>Renato O.</a> - My template for <a href='https://zendesk.com/'>Zendesk</a>.</p> </div>
+  <div class='container navbar fixed-bottom'><p>© 2020 <a href='https://github.com/renatoos'>Renato O.</a> - My template for <a href='https://zendesk.com/'>Zendesk</a>.</p> </div>
 
 
 
@@ -242,6 +239,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <script src="script.js"></script>
+
 
 
 </body>

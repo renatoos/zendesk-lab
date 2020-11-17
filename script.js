@@ -53,11 +53,18 @@ var app = new Vue({
   data: {
     brand: "Zendesk",
     authnOption: "anonymous",
-    integrationId: "<your-integration-ID>",
+    integrationId: "5f46e9a4bbf79d000c333448",
     userId: "johndoe@example.com",
-    jwtAuthn : "eyJraWQiOiJhcHBfNWY0NmU4ZDk0ZDlkODQwMDBjYWE4YzViIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE1OTk4NDQ2MDksInNjb3BlIjoiYXBwVXNlciIsInVzZXJJZCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJuYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20ifQ.AAcljsoyOLsJvFcZl2OUqyVb-zYS90cpwU--nZGmWaI",  
+    jwtAuthn : "eyJraWQiOiJhcHBfNWY0NmU4ZDk0ZDlkODQwMDBjYWE4YzViIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE2MDUzMTAyOTIsInNjb3BlIjoiYXBwVXNlciIsInVzZXJJZCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJuYW1lIjoiSm9obiBEb2UiLCJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20ifQ.XdMdDE0P51MFUzDQh90YWue8lK84pbsKGPA0VHjM_Og",  
     isFixedIntro: true,
     isEmbedded: true,
+    businessName: 'Zgroup Corporation',
+    businessIconUrl: 'https://is2-ssl.mzstatic.com/image/thumb/Purple127/v4/67/a4/5b/67a45b68-c821-842f-22f5-9fa83b605ce3/mzl.evidoiah.jpg/1200x630bb.jpg',
+    buttonWidth: '90',
+    buttonHeight: '90',
+    soundNotificationEnabled: false,
+    backgroundImageUrl: '', //'https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg',
+    menu: menuData,
     customText: {
       headerText: "ZGroup",
       inputPlaceholder: "Type a messages...",
@@ -68,21 +75,17 @@ var app = new Vue({
       conversationColor: "#b7b7b5",
       actionColor: "#191919"
     },
-    businessName: 'Acme Corporation',
-    businessIconUrl: 'https://is2-ssl.mzstatic.com/image/thumb/Purple127/v4/67/a4/5b/67a45b68-c821-842f-22f5-9fa83b605ce3/mzl.evidoiah.jpg/1200x630bb.jpg',
     menuItems: {
       imageUpload: true,
       fileUpload: true,
       shareLocation: true
-  },
-    soundNotificationEnabled: false,
-    backgroundImageUrl: '', //'https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg',
-    menu: menuData,
+    },
   },
   methods: {
     authenticateUser: function () {
         
         smoochLogin(this.userId, this.jwtAuthn);
+
         this.customText.headerText = this.userId;
         this.updateWidget();
   
@@ -112,6 +115,8 @@ function smoochLogin(userId, jwt){
       console.error("Authentication Failed");
     }
   );
+
+  console.log(login)
 };
 
 function smoochLogout(){
@@ -161,13 +166,21 @@ $('#myTab a').on('click', function (e) {
 
 
 
-// function fetchApi(){
-//   const url = "https://pokeapi.co/api/v2/pokemon/ditto"
+function fetchApi(){
+
+  const url = "http://localhost:4567/sunco/jwt"
   
-//   fetch(url)
-//     .then(data=>{return data.json()})
-//     .then(res=>{console.log(res)})
+  fetch(url)
+    .then(data=>{return data.json()})
+    .then(res=>{console.log(res)})
 
-// }
+}
 
-// console.log(fetchApi());
+console.log(fetchApi());
+
+
+feather.replace();
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
