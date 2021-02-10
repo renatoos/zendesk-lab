@@ -59,7 +59,14 @@
 
 
   <script>
-    Smooch.init({ integrationId: '5f46e9a4bbf79d000c333448' });
+    userId = 'AB1234'
+    jwt = 'eyJraWQiOiJhcHBfNWY0NmU4ZDk0ZDlkODQwMDBjYWE4YzViIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE2MTI5MjAxODIsInNjb3BlIjoiYXBwVXNlciIsInVzZXJJZCI6IkFCMTIzNCIsIm5hbWUiOiJKYW5lIERvZSIsImVtYWlsIjoiamFuZS5kb2VAZXhhbXBsZS5jb20ifQ.cmCZ0UEHadF_KcaL-Q30MV-ycBhaakvHwhjk16l2CHI' 
+
+    Smooch.init(
+      { integrationId: '5f46e9a4bbf79d000c333448', 
+      externalId: userId,
+      jwt: jwt
+  });
     </script>
 </body>
 
