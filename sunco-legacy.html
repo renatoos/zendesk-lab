@@ -60,7 +60,21 @@
 
 
   <script>
+    jwt = 'eyJraWQiOiJhcHBfNWY0NmU4ZDk0ZDlkODQwMDBjYWE4YzViIiwidHlwIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJpYXQiOjE2MTI4Nzc4ODQsInNjb3BlIjoiYXBwVXNlciIsInVzZXJJZCI6IkFCMTIzNCIsIm5hbWUiOiJKYW5lIERvZSIsImVtYWlsIjoiamFuZS5kb2VAZXhhbXBsZS5jb20ifQ.GGAMG_Ndt4zrXEsG6Ci0vxM6z3h9sR7XIMwm3hTnONw'
+    userId = 'AB1234'
+
     Smooch.init({ integrationId: '5f19ad569fdd5c000cd87fbe' });
+
+    Smooch.login( userId, jwt ).then(
+    function () {
+      console.log("Authentication OK");
+    },
+    function (err) {
+      console.error("Authentication Failed");
+      console.error("E# " + err);
+    }
+  );
+
     </script>
 </body>
 
