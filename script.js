@@ -135,6 +135,14 @@ function smoochInit(settings) {
   Smooch.destroy();
 
   Smooch.init({
+    delegate: {
+      // beforeDisplay(message) {
+      //   if (message.role === 'business') {
+      //     message.displayName = 'Operador W';
+      //   }
+      //   return message;
+      // }
+    },
     integrationId: settings.integrationId,
     fixedIntroPane: settings.isFixedIntro,
     //browserStorage: "sessionStorage",
@@ -155,6 +163,7 @@ function smoochInit(settings) {
 
   if(settings.isEmbedded){
     Smooch.render(document.getElementById('chat-container'));
+    
   }
 
 }
@@ -176,11 +185,52 @@ function fetchApi(){
 
 }
 
-console.log(fetchApi());
+//console.log(fetchApi());
 
 
 feather.replace();
 
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
-})
+});
+
+// This event triggers when the user sends a message
+Smooch.on('message:sent', function (message, data) {
+  console.log(`The user sent a message in conversation ${data.conversation.id}: `, message);
+});
+
+// data object
+data = {
+  conversation: {
+      id: '<conversation-id>',
+  },
+};
+
+
+
+
+// Customize typing indicator
+Smooch.on('typing:start', function (data) {
+  var iframe = document.querySelector('iframe');
+  var iframeBody = iframe.contentDocument.body;
+      var typingIndicator = iframeBody.getElementsByClassName('typing-indicator-container')[0];
+      if (typingIndicator) {
+          var nameChild = typingIndicator.querySelector('.from');
+          if (nameChild) {
+              nameChild.innerText = "Atendimento ZGroup";
+          }
+          var avatarChild = typingIndicator.querySelector('.typing-indicator-avatar');
+          if (avatarChild) {
+              avatarChild.src = "https://media.smooch.io/5f3d6e5b0796c6000c2cee50/icons/appicon.jpg";
+              avatarChild.alt = "\'s avatar";
+          }
+      }
+});
+
+
+
+  var i = setInterval( function(){
+    
+     
+          
+  }, 1000);
